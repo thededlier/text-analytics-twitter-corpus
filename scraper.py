@@ -5,7 +5,7 @@ from pathlib import Path
 
 from twitterscraper import query_tweets
 
-query_limit = 10
+query_limit = 1000
 start_date = datetime.date(2019, 12, 26)
 end_date = datetime.date(2020, 2, 23)
 
