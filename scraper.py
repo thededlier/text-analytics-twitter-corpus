@@ -57,11 +57,15 @@ if __name__ == '__main__':
         date_path.mkdir(exist_ok=False)
 
         for tweet in list_of_tweets:
-            file_path =  date_path / "{}.txt".format(t_iterator)
+            try:
+                file_path =  date_path / "{}.txt".format(t_iterator)
 
-            file = open(file_path, "w")
-            file.write(tweet.text)
-            file.close()
+                file = open(file_path, "w")
+                file.write(tweet.text)
+                file.close()
+                
+            except Exception as err:
+                print("Exception: {0}".format(err))
 
             t_iterator += 1
 
