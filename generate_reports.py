@@ -10,6 +10,11 @@ corr_dict = {
 
 for file in os.listdir("./processed_errors"):
     error_counts_by_date_df = pd.read_csv("./processed_errors/" + file);
+    error_counts_by_date_df['total_error_count'] = error_counts_by_date_df['total_error_count'].astype('int')
+    error_counts_by_date_df['total_tweets'] = error_counts_by_date_df['total_tweets'].astype('int')
+    error_counts_by_date_df['error_rate'] = error_counts_by_date_df['error_rate'].astype('float64')
+    error_counts_by_date_df['lunar_phase'] = error_counts_by_date_df['lunar_phase'].astype('int')
+    error_counts_by_date_df['date'] = error_counts_by_date_df['date'].astype('datetime64')
 
     hashtag = file.replace(".csv", "")
 
