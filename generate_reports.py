@@ -18,14 +18,14 @@ for file in os.listdir("./processed_errors"):
 
     hashtag = file.replace(".csv", "")
 
-    fig, ax = plt.subplots(figsize=(8,6))
+    fig, ax = plt.subplots(figsize=(10,8))
     ax.plot(error_counts_by_date_df["date"], error_counts_by_date_df['error_rate'])
 
-    plt.xticks(rotation='vertical')
-    ax.fmt_xdata = mdates.DateFormatter('%Y-%m-%d')
+    plt.xticks(rotation=45)
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%y-%m-%d'))
     ax.xaxis.set_minor_locator(mdates.DayLocator())
 
-    ax.set_xlabel('Date')
+    ax.set_xlabel('Date (YY-MM-DD)')
     ax.set_ylabel('Error Rate')
     ax.set_title('Total Error Counts over time for #{}'.format(hashtag))
 
